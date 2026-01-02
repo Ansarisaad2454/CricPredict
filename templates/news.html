@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}CricPredict News - Latest IPL Updates{% endblock %}
+{% set active_page = 'news' %}
+
+{% block content %}
+<div class="w-full max-w-7xl glass-effect rounded-3xl shadow-2xl p-6 md:p-10 animate-scale-in glow-card">
+  
+  <div class="text-center mb-8 md:mb-12 animate-slide-down">
+    <h2 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-yellow-400 to-orange-500 mb-3 drop-shadow-2xl flex items-center justify-center gap-3">
+      <span class="text-5xl">📰</span>
+      <span>Latest Cricket News</span>
+    </h2>
+    <p class="text-white/90 text-lg md:text-xl max-w-3xl mx-auto">
+      Up-to-the-minute headlines and stories.
+    </p>
+  </div>
+
+  <div 
+    id="news-container"
+    hx-get="/get-news-articles"  hx-trigger="load"
+    hx-indicator="#loading"
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+  >
+    <div id="loading" class="htmx-indicator col-span-full glass-effect p-6 rounded-2xl border border-yellow-400/30">
+      <div class="flex flex-col items-center gap-4">
+        <div class="spinner"></div>
+        <span class="text-white/90 font-semibold text-lg animate-pulse">Fetching latest news...</span>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

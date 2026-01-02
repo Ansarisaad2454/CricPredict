@@ -1,0 +1,20 @@
+# /backend/requirements.txt
+
+# API Server
+fastapi[all]
+uvicorn[standard]
+
+# Data & ML
+pandas
+numpy
+scikit-learn
+
+# NLP & Fuzzy Matching
+spacy
+rapidfuzz
+cachetools
+newsdataapi
+faiss-cpu
+sentence_transformers
+# You might also need the spaCy model
+# (Install this separately after)

@@ -1,0 +1,11 @@
+<div class="animate-fade-in text-center p-6 bg-gradient-to-br from-blue-600/30 to-purple-600/30 rounded-2xl border border-white/20 shadow-lg glow-card transform hover:scale-[1.02] transition-all duration-300">
+    <div class="mb-3"><span class="text-4xl">🏏</span></div>
+    <div class="text-sm font-bold text-blue-200 mb-2 uppercase tracking-wider">Projected Final Score</div>
+    <div class="text-6xl font-extrabold text-white drop-shadow-[0_0_15px_rgba(59,130,246,0.6)] font-mono">
+        {{ predicted_score }} - {{ upper_bound }}
+    </div>
+    <div class="text-xs text-white/60 mt-3 flex items-center justify-center gap-2">
+        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+        Based on current run rate & wickets
+    </div>
+</div>

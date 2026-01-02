@@ -1,0 +1,32 @@
+<div class="glass-effect rounded-2xl p-5 shadow-xl border border-white/20 flex flex-col justify-between transform hover:scale-[1.03] transition-all duration-300 animate-fade-in">
+  <div>
+    {% if article.image_url %}
+    <img src="{{ article.image_url }}" alt="{{ article.title }}" class="w-full h-48 object-cover rounded-lg mb-4 shadow-lg">
+    {% else %}
+    <div class="w-full h-48 bg-gray-700/50 rounded-lg mb-4 flex items-center justify-center">
+      <span class="text-white/50">No Image</span>
+    </div>
+    {% endif %}
+
+    <h3 class="text-xl font-bold text-yellow-300 mb-2 leading-snug">
+      {{ article.title }}
+    </h3>
+    <p class="text-white/80 text-sm mb-4 leading-relaxed">
+      {{ article.description }}
+    </p>
+  </div>
+
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-xs text-white/60 bg-white/10 px-3 py-1 rounded-full">
+      {{ article.source_id }}
+    </span>
+    <a 
+      href="{{ article.link }}" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="text-sm font-semibold text-yellow-400 hover:text-yellow-300"
+    >
+      Read More &rarr;
+    </a>
+  </div>
+</div>

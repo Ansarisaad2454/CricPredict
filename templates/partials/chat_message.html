@@ -1,0 +1,32 @@
+{% if role == 'User' %}
+<div class="flex justify-end animate-slide-up" role="article" aria-label="User message">
+  <div class="group max-w-[85%] md:max-w-[70%]">
+    <div class="p-4 md:p-5 rounded-3xl rounded-tr-md bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-xl hover:shadow-2xl hover:shadow-blue-500/50 transform hover:scale-[1.01] transition-all duration-300">
+      <div class="flex items-center gap-2 mb-2">
+        <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+          <span class="text-lg">👤</span>
+        </div>
+        <strong class="text-white/90 text-sm font-semibold">You</strong>
+      </div>
+      <div class="text-white leading-relaxed break-words text-sm md:text-base">{{ message | safe }}</div>
+    </div>
+    <div class="text-xs text-white/50 mt-1 mr-2 text-right">Just now</div>
+  </div>
+</div>
+
+{% else %}
+<div class="flex justify-start animate-slide-up" role="article" aria-label="Assistant message">
+  <div class="group max-w-[85%] md:max-w-[70%]">
+    <div class="p-4 md:p-5 rounded-3xl rounded-tl-md glass-effect text-white shadow-xl hover:shadow-2xl hover:shadow-yellow-500/20 transform hover:scale-[1.01] transition-all duration-300 border border-white/20">
+      <div class="flex items-center gap-2 mb-2">
+        <div class="w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
+          <span class="text-lg">🤖</span>
+        </div>
+        <strong class="text-yellow-300 text-sm font-semibold">{{ role }}</strong>
+      </div>
+      <div class="text-white/95 leading-relaxed break-words text-sm md:text-base">{{ message | safe }}</div>
+    </div>
+    <div class="text-xs text-white/50 mt-1 ml-2">Just now</div>
+  </div>
+</div>
+{% endif %}
