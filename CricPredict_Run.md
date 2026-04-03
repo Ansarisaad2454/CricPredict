@@ -144,19 +144,64 @@ Access:
 
 ---
 
-## 10. Model Evaluation
+## 10. Free Deployment (Render Recommended)
+
+This project is now deployment-ready for Render free tier.
+
+### Files added for deployment
+- `render.yaml` (Blueprint for Render)
+- `Procfile` (ASGI start command)
+- `runtime.txt` (Python version)
+
+### A) Deploy on Render (Free)
+1. Push this project to GitHub.
+2. Create a free account at Render.
+3. Click **New +** -> **Blueprint**.
+4. Connect your GitHub repo and select this project.
+5. Render auto-detects `render.yaml` and creates the web service.
+6. Set/verify environment variables:
+	- `SECRET_KEY` (required, random string)
+	- `GEMINI_API_KEY` (optional, enables AI analysis)
+	- `NEWSDATA_API_KEY` (optional, enables live news)
+7. Deploy and open the generated Render URL.
+
+Default start command used:
+```bash
+uvicorn main:app --host 0.0.0.0 --port $PORT
+```
+
+### B) Deploy on Railway (Alternative Free Credits)
+1. Create a Railway project and link your GitHub repo.
+2. Set the start command to:
+```bash
+uvicorn main:app --host 0.0.0.0 --port $PORT
+```
+3. Add environment variables:
+	- `SECRET_KEY`
+	- `GEMINI_API_KEY` (optional)
+	- `NEWSDATA_API_KEY` (optional)
+4. Deploy.
+
+### Notes for free plans
+- First request may be slow due to cold starts.
+- If optional API keys are missing, app still runs; AI analysis/news features return fallback responses.
+- Keep model/data files in repo or storage accessible at boot.
+
+---
+
+## 11. Model Evaluation
 
 XGBoost performed best compared to Logistic Regression and Decision Tree.
 
 ---
 
-## 11. Conclusion
+## 12. Conclusion
 
 CricPredict successfully combines Machine Learning and Generative AI to provide accurate IPL predictions and analytics in a user-friendly manner.
 
 ---
 
-## 12. Future Enhancements
+## 13. Future Enhancements
 
 - Live match data  
 - Mobile application  
@@ -165,7 +210,7 @@ CricPredict successfully combines Machine Learning and Generative AI to provide 
 
 ---
 
-## 13. Developer
+## 14. Developer
 
 **Saad Ansari**  
 M.Sc. AI & ML  
@@ -173,6 +218,6 @@ Gujarat University
 
 ---
 
-## 14. License
+## 15. License
 
 For academic and educational purposes only.
