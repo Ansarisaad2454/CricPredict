@@ -1,3 +1,12 @@
+---
+title: CricPredict
+emoji: 🏏
+colorFrom: green
+colorTo: blue
+sdk: docker
+pinned: false
+---
+
 # CricPredict – AI-Based IPL Match Prediction System 🏏
 
 CricPredict is an AI-powered web application developed to analyze **Indian Premier League (IPL)** cricket data and provide intelligent match insights.  
@@ -67,6 +76,49 @@ The system combines **Machine Learning** and **Generative AI** to predict match 
 6. Frontend Interaction via HTMX  
 7. Prediction Output (Win Probability / Score)  
 8. Chatbot Query Processing using RAG  
+
+---
+
+## Deploy On Hugging Face Spaces
+
+This project is configured for **Hugging Face Spaces (Docker SDK)**.
+
+### 1. Push this code to GitHub
+- Make sure these files are in your repo root:
+  - `main.py`
+  - `requirements.txt`
+  - `Dockerfile`
+  - `.dockerignore`
+  - `templates/`, `static/`, `data/`
+  - `pipe.joblib`, `score_pipe.joblib`, `faiss_index.idx`, `rag_texts.pkl`
+
+### 2. Create a Space
+- Go to Hugging Face -> **New Space**
+- Choose:
+  - **Owner**: your account
+  - **Space name**: e.g. `cricpredict`
+  - **SDK**: `Docker`
+  - **Visibility**: Public or Private
+
+### 3. Add your repository to the Space
+- Option A: Connect GitHub repo directly
+- Option B: Upload files manually
+
+### 4. Configure Space secrets (Settings -> Variables and secrets)
+- Add these keys:
+  - `SECRET_KEY` (required)
+  - `GEMINI_API_KEY` (optional, for AI analysis)
+  - `NEWSDATA_API_KEY` (optional, for live news)
+
+If optional keys are missing, related features may show fallback/error text but the app can still run.
+
+### 5. Build and run
+- Hugging Face will auto-build using `Dockerfile`.
+- Your app must listen on port `7860` inside the container (already handled).
+
+### 6. Open your Space URL
+- After build success, open:
+  - `https://huggingface.co/spaces/<username>/<space-name>`
 
 ---
 
