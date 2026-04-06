@@ -26,6 +26,9 @@ from stats_utils import StatsEngine
 # --- 1. SETUP FASTAPI & TEMPLATES ---
 app = FastAPI(title="CricPredict API")
 templates = Jinja2Templates(directory="templates")
+
+# Ensure folder exists in container even when repository has no static assets yet.
+os.makedirs("static", exist_ok=True)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 SECRET_KEY = os.environ.get("SECRET_KEY", "a-very-weak-default-key-for-dev-only")
